@@ -75,12 +75,27 @@ var item = document.querySelector('.list-group-item');
 item.style.color = 'red';
 
 var lastitem = document.querySelector('.list-group-item:last-child');
-lastitem.style.color = 'yellow';
+lastitem.style.color = 'purple';
 
 var seconditem = document.querySelector('.list-group-item:nth-child(2)');
 seconditem.style.backgroundColor = 'green';
 
-var thirditem = document.querySelector('.list-group-item:nth-child(3)');
-thirditem.style.display = 'none';
+//var thirditem = document.querySelector('.list-group-item:nth-child(3)');
+//thirditem.style.display = 'none';
 
+//queryselectorall
+var titles = document.querySelectorAll('.title');
+console.log(titles);
+titles[0].textContent='Hello';
+
+var odd = document.querySelectorAll('li:nth-child(odd)');
+var even = document.querySelectorAll('li:nth-child(even)');
+for(var i=0; i<odd.length; i++)
+{
+    odd[i].style.backgroundColor='green';
+    even[i].style.backgroundColor='yellow';
+}
+
+var secondlistitem = document.querySelectorAll('li');
+secondlistitem[1].style.color ='green';
 
