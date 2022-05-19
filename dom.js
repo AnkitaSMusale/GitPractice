@@ -46,3 +46,22 @@ for(var i=0; i<items.length; i++)
     //items[i].style.color='red';
 }
 
+
+//get element by tagname
+var li = document.getElementsByTagName('li');
+console.log(li);
+console.log(li[2]);
+li[2].textContent='Hello';
+li[2].style.fontWeight='bold';
+li[2].style.backgroundColor='pink';
+//items.style.backgroundColor='pink'; //gives error ->hence use a for loop
+for(var i=0; i<li.length; i++)
+{
+    li[i].style.fontWeight='bold';
+    //items[i].style.color='red';
+}
+
+//Queryselector
+var header=document.querySelector('#main-header');
+header.style.borderBottom='solid 4px blue';
+
