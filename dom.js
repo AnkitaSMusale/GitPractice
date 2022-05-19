@@ -59,7 +59,7 @@ for(var i=0; i<li.length; i++)
 {
     li[i].style.fontWeight='bold';
     //items[i].style.color='red';
-}*/
+}
 
 //Queryselector
 var header=document.querySelector('#main-header');
@@ -98,4 +98,77 @@ for(var i=0; i<odd.length; i++)
 
 var secondlistitem = document.querySelectorAll('li');
 secondlistitem[1].style.color ='green';
+*/
 
+//traversing dom
+var itemlist = document.querySelector('#items');
+//parentnode
+console.log(itemlist.parentNode);
+itemlist.parentNode.style.backgroundColor = 'grey';
+console.log(itemlist.parentNode.parentNode);
+
+//parentelement
+console.log(itemlist.parentElement);
+itemlist.parentElement.style.backgroundColor = 'grey';
+console.log(itemlist.parentElement.parentElement);
+
+//childnodes
+//console.log(itemlist.childNodes);
+console.log(itemlist.children);
+console.log(itemlist.children[3]);
+itemlist.children[3].style.backgroundColor='pink';
+
+//firstchild
+console.log(itemlist.firstChild);
+
+//first element child
+console.log(itemlist.firstElementChild);
+itemlist.firstElementChild.textContent='Welcome';
+
+//lastchild
+console.log(itemlist.lastChild);
+
+//first element child
+console.log(itemlist.lastElementChild);
+itemlist.lastElementChild.textContent='goodbye';
+
+//next sibling
+console.log(itemlist.nextSibling);
+//nextElementSibling
+console.log(itemlist.nextElementSibling);
+
+//previous sibling
+console.log(itemlist.previousSibling);
+//previousElementSibling
+console.log(itemlist.previousElementSibling);
+itemlist.previousElementSibling.style.color = 'red';
+
+//create element(creating a div)
+var newDiv = document.createElement('div');
+//console.log(newDiv);
+newDiv.className='hello';  //adding class
+newDiv.id='hello1'; //adding id
+newDiv.setAttribute('title','hello div'); //adding attribute
+//console.log(newDiv);
+
+//create text node
+var newDivText = document.createTextNode('Hello world');
+newDiv.appendChild(newDivText); //adding text to div
+//console.log(newDiv);
+
+//add HEllo word before Item Lister
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1');
+console.log(newDiv);
+newDiv.style.fontSize='30px';
+container.insertBefore(newDiv,h1);
+
+//add HEllo word before Item 1
+var newDiv1 = document.createElement('div');
+var newDiv1Text = document.createTextNode('Hello world');
+newDiv1.appendChild(newDiv1Text);
+var listgroup = document.querySelector('div .list-group');
+var li = document.querySelector('div li');
+console.log(newDiv1);
+newDiv1.style.fontSize='18px';
+listgroup.insertBefore(newDiv1,li);
