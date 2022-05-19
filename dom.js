@@ -33,7 +33,7 @@ heading.innerHTML='<b>ADD ITEMS';
 */
 
 //get element by classname
-var items = document.getElementsByClassName('list-group-item');
+/*var items = document.getElementsByClassName('list-group-item');
 console.log(items);
 console.log(items[2]);
 items[2].textContent='Hello';
@@ -59,9 +59,28 @@ for(var i=0; i<li.length; i++)
 {
     li[i].style.fontWeight='bold';
     //items[i].style.color='red';
-}
+}*/
 
 //Queryselector
 var header=document.querySelector('#main-header');
 header.style.borderBottom='solid 4px blue';
+
+var input = document.querySelector('input');
+input.value='Hello world';
+
+var submit = document.querySelector('input[type="submit"]');
+submit.value='Send';
+
+var item = document.querySelector('.list-group-item');
+item.style.color = 'red';
+
+var lastitem = document.querySelector('.list-group-item:last-child');
+lastitem.style.color = 'yellow';
+
+var seconditem = document.querySelector('.list-group-item:nth-child(2)');
+seconditem.style.backgroundColor = 'green';
+
+var thirditem = document.querySelector('.list-group-item:nth-child(3)');
+thirditem.style.display = 'none';
+
 
