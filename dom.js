@@ -100,6 +100,7 @@ var secondlistitem = document.querySelectorAll('li');
 secondlistitem[1].style.color ='green';
 */
 
+/*
 //traversing dom
 var itemlist = document.querySelector('#items');
 //parentnode
@@ -171,4 +172,45 @@ var listgroup = document.querySelector('div .list-group');
 var li = document.querySelector('div li');
 console.log(newDiv1);
 newDiv1.style.fontSize='18px';
-listgroup.insertBefore(newDiv1,li);
+listgroup.insertBefore(newDiv1,li);*/
+
+
+var form = document.getElementById('addform');
+var itemlist = document.getElementById('items');
+
+//for submit event
+form.addEventListener('submit', addItem);
+
+//function to add items
+function addItem(e){
+    e.preventDefault();
+
+    //to get input value
+    var newitem = document.getElementById("item").value;
+
+    //create new li element
+    var li = document.createElement('li');
+
+    //add class
+    li.className='list-group-item';
+
+    //add text node with input value
+    li.appendChild(document.createTextNode(newitem));
+
+    //create delete button
+    var deletebtn = document.createElement('button');
+
+    //add classes to del btn
+    deletebtn.className ='btn-danger btn-sm float-right delete';
+
+    //append texxt node
+    deletebtn.appendChild(document.createTextNode('X'));
+    
+    //append button to li
+    li.appendChild(deletebtn);
+
+    //append li to list
+
+    itemlist.appendChild(li);
+
+}
