@@ -180,9 +180,12 @@ var itemlist = document.getElementById('items');
 
 //for submit event
 form.addEventListener('submit', addItem);
+//delete event
+itemlist.addEventListener('click', removeitem);
 
 //function to add items
-function addItem(e){
+function addItem(e)
+{
     e.preventDefault();
 
     //to get input value
@@ -197,6 +200,18 @@ function addItem(e){
     //add text node with input value
     li.appendChild(document.createTextNode(newitem));
 
+    //create edit button
+    var editbtn = document.createElement('button');
+
+    //add classes to edit btn
+    editbtn.className ='btn-danger btn-sm float-right delete';
+
+    //append texxt node
+    editbtn.appendChild(document.createTextNode('Edit'));
+    
+    //append button to li
+    li.appendChild(editbtn);
+    
     //create delete button
     var deletebtn = document.createElement('button');
 
@@ -208,9 +223,16 @@ function addItem(e){
     
     //append button to li
     li.appendChild(deletebtn);
-
+    
     //append li to list
-
     itemlist.appendChild(li);
-
+}
+//removing list element
+function removeitem(e){
+    if(e.target.classList.contains('delete')){
+        if(confirm('Are you sure?')){
+            var li = e.target.parentElement;
+            itemlist.removeChild(li);
+        }
+    }
 }
