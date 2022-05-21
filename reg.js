@@ -14,16 +14,17 @@ btn.addEventListener('mouseout',(e)=>{
     document.querySelector('.items').lastElementChild.innerHTML='<h1>Hello</h1>'
 });*/
 const my_form=document.querySelector('#my_form');
-const nameInput=document.querySelector('#name');
-const emailInput=document.querySelector('#email');
+const name=document.querySelector('#name');
+const email=document.querySelector('#email');
 const msg=document.querySelector('.msg');
 const userList=document.querySelector('#Users');
+
 
 my_form.addEventListener('submit',onsubmit);
 function onsubmit(e){
     e.preventDefault();
 
-    if(nameInput.value==='' || emailInput.emailInput===''){
+    if(name.value==='' || email.value===''){
         msg.classList.add('error');
         msg.innerHTML='please enter all fields';
 
@@ -32,14 +33,24 @@ function onsubmit(e){
     else{
         const li=document.createElement('li');
         //li.appendChild(document.createTextNode(`${nameInput.value}:${emailInput.value}`));
-        li.appendChild(document.createTextNode(localStorage.setItem(nameInput.value,emailInput.value)));
+        //li.appendChild(document.createTextNode(localStorage.setItem(nameInput.value,emailInput.value)));
+        //li.appendChild(document.createTextNode(localStorage.setItem("userdetails",JSON.stringify(obj))));
+        localStorage.setItem("name",name.value);
+        localStorage.setItem("email",email.value);
+        const obj={
+            name : name.value,
+            email : email.value
+        }
+        localStorage.setItem("userdetails",JSON.stringify(obj))
 
         /*userList.appendChild(li);
         nameInput.value='';
         emailInput.value='';*/
 }
 }
-/*localStorage.setItem('name','Ankita');
+
+/*  //manually storing values 1 by 1 in localstorage
+localStorage.setItem('name','Ankita');
 console.log(localStorage.getItem('name'));
 localStorage.setItem('name1','John');
 console.log(localStorage.getItem('name1'));
