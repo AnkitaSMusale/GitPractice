@@ -42,10 +42,11 @@ function onsubmit(e){
             email : email.value
         }
         localStorage.setItem("userdetails",JSON.stringify(obj))
-
-        /*userList.appendChild(li);
-        nameInput.value='';
-        emailInput.value='';*/
+        li.appendChild(document.createTextNode(`name : ${name.value}, email : ${email.value}`));
+           
+        userList.appendChild(li);
+        name.value='';
+        email.value='';
 }
 }
 
