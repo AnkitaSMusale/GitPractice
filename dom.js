@@ -252,7 +252,7 @@ function filterItems(e){
    var item = document.getElementsByTagName('li');
    //to convert list collection into an Array
    Array.from(item).forEach(function(item){
-       var itemName= item.firstChild.textContent;
+       var itemName= item.textContent;
        //console.log(itemName);
        if(itemName.toLowerCase().indexOf(text) != -1){
            item.style.display='block';
