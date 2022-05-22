@@ -18,8 +18,6 @@ const name=document.querySelector('#name');
 const email=document.querySelector('#email');
 const msg=document.querySelector('.msg');
 const userList=document.querySelector('#Users');
-
-
 my_form.addEventListener('submit',onsubmit);
 function onsubmit(e){
     e.preventDefault();
@@ -35,20 +33,37 @@ function onsubmit(e){
         //li.appendChild(document.createTextNode(`${nameInput.value}:${emailInput.value}`));
         //li.appendChild(document.createTextNode(localStorage.setItem(nameInput.value,emailInput.value)));
         //li.appendChild(document.createTextNode(localStorage.setItem("userdetails",JSON.stringify(obj))));
-        localStorage.setItem("name",name.value);
-        localStorage.setItem("email",email.value);
+        //localStorage.setItem("name",name.value);
+        //localStorage.setItem("email",email.value);
         const obj={
             name : name.value,
             email : email.value
         }
-        localStorage.setItem("userdetails",JSON.stringify(obj))
-        li.appendChild(document.createTextNode(`name : ${name.value}, email : ${email.value}`));
+        localStorage.setItem(obj.email,JSON.stringify(obj))
+        li.appendChild(document.createTextNode(`${name.value}-${email.value}`));
            
         userList.appendChild(li);
         name.value='';
         email.value='';
+
 }
+}       
+document.addEventListener('DOMContentLoaded',() => {
+        console.log("dom has loaded",localStorage);
+        console.log(Object.keys(localStorage));
+
+        var keysarr = Object.keys(localStorage);
+        keysarr.forEach(keys =>{
+            const userdetail = JSON.parse(localStorage[keys]);
+            shownewUserOnScreen(userdetail);
+        })
+});
+function shownewUserOnScreen(userdetail)
+{
+    const parentNode = document.getElementById('Users');
+    parentNode.innerHTML += `<li> ${userdetail.name} - ${userdetail.email} </li>`;
 }
+
 
 /*  //manually storing values 1 by 1 in localstorage
 localStorage.setItem('name','Ankita');
