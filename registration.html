@@ -17,11 +17,11 @@
             <div class="msg"></div>
             <div>
                 <label for="name">Name:</label><br>
-                <input type="text" id="name">
+                <input id="name" type="text" id="name" name="name">
             </div>
             <div>
                 <label for="email">E-mail:</label><br>
-                <input type="text" id="email">
+                <input id="email" type="text" id="email" name="email">
             </div>
             <br>
             <input class="btn" type="submit" value="submit">
@@ -34,5 +34,15 @@
         </ul>-->
     </section>
     <script src="reg.js"></script>
+    <!--
+    <script>
+        function saveToLocalStorage(event){
+            event.preventDefault();
+            const name = event.target.name.value;
+            const email = event.target.email.value;
+            localStorage.setItem('name',name);
+            localStorage.setItem('email',email);
+        }
+    </script>-->
 </body>
 </html>
