@@ -39,10 +39,11 @@ function onsubmit(e){
             name : name.value,
             email : email.value
         }
+        removeUserFromScreen(obj.email);
         localStorage.setItem(obj.email,JSON.stringify(obj))
-        li.appendChild(document.createTextNode(`${name.value}-${email.value}`));
-           
-        userList.appendChild(li);
+        li.appendChild(document.createTextNode(`${name.value} - ${email.value}`));  
+        shownewUserOnScreen(obj);
+        //userList.appendChild(li);
         name.value='';
         email.value='';
 
@@ -60,10 +61,39 @@ document.addEventListener('DOMContentLoaded',() => {
 });
 function shownewUserOnScreen(userdetail)
 {
+    //console.log(localStorage.getItem(userdetail.email));
+    if(localStorage.getItem(userdetail.email) !== null)
+    {
+        removeUserFromScreen(userdetail.email);
+    }
     const parentNode = document.getElementById('Users');
-    parentNode.innerHTML += `<li> ${userdetail.name} - ${userdetail.email} </li>`;
+    const childHTML = `<li id=${userdetail.email}> ${userdetail.name} - ${userdetail.email} <button onclick=EditUser('${userdetail.email}','${userdetail.name}')>Edit</button><button onclick=deleteUser('${userdetail.email}')>Delete</button></li>`;
+    parentNode.innerHTML += childHTML;
+}
+function EditUser(email,name)
+{
+    document.getElementById('name').value = name;
+    document.getElementById('email').value = email;
+    deleteUser(email);
+}
+function deleteUser(email)
+{
+    console.log(email);
+    localStorage.removeItem(email);
+    removeUserFromScreen(email);
 }
 
+function removeUserFromScreen(email)
+{
+    const parentNode = document.getElementById('Users');
+    const childNodeTobeDeleted = document.getElementById(email);
+
+    
+    if(childNodeTobeDeleted)
+    {
+        parentNode.removeChild(childNodeTobeDeleted);
+    }
+}
 
 /*  //manually storing values 1 by 1 in localstorage
 localStorage.setItem('name','Ankita');
