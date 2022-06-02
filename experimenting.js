@@ -5,5 +5,8 @@ function add(a , b , c){
 }
 
 //console.log(add.call(obj1,10));
-var arr = [4,6, 10];
-console.log(add.apply(obj1,arr));
+//console.log(add.apply(obj1,arr));
+var arr = [4,6,10];
+//console.log(add.bind(obj1,arr));
+var bound = add.bind(obj1);
+console.log(bound(4,6,10));
