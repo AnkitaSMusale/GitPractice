@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="Expense_Tracker.css">
+</head>
+<body>
+    <header>
+        <h1>Expense Tracker</h1>
+    </header>
+    <section class="container">
+        <form id="my_form">
+            <div class="msg"></div>
+            <div>
+                <label for="amt">Choose Expense Amount:</label>
+                <input id="amt" type="text" id="amt" name="amt">
+            
+                <label for="descr">Choose a Description:</label>
+                <input id="descr" type="text" id="descr" name="descr">
+            
+                <label for="categ">Choose a Category:</label>
+                <!-- <input id="categ" type="text" id="categ" name="categ">-->
+               <select id="categ" type="text" id="categ" name="categ" selected:none>
+                    <option value="none" selected></option>
+                    <option value="work">work</option>
+                    <option value="Fuel">Fuel</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Travelling">Travelling</option>
+                    <option value="other">other</option>
+                </select>
+                <br>
+            <input class="btn" type="submit" value="submit">
+            </div>  
+        </form>
+        <ul id="Users"></ul>    
+    </section>
+    <script src="Expense_Tracker.js"></script>
+    
+</body>
+</html> 
