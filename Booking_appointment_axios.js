@@ -21,7 +21,7 @@ function onsubmit(e){
         }
         removeUserFromScreen(obj.email);
 
-        axios.post("https://crudcrud.com/api/99be81678918400f91e1f7137f9f1f37/appointmentData",obj)
+        axios.post("https://crudcrud.com/api/1b479ff2f4844de9be959f6bc1218ec5/appointmentData",obj)
             .then((Response) => {
                 shownewUserOnScreen(Response.data)
                 console.log(Response) 
@@ -42,13 +42,14 @@ function onsubmit(e){
 }       
 document.addEventListener('DOMContentLoaded',() => {
         console.log("dom has loaded");
-        //console.log(Object.keys(localStorage));
-
-        var keysarr = Object.keys(localStorage);
-        keysarr.forEach(keys =>{
-            const userdetail = JSON.parse(localStorage[keys]);
-            shownewUserOnScreen(userdetail);
-        })
+        axios.get("https://crudcrud.com/api/1b479ff2f4844de9be959f6bc1218ec5/appointmentData")
+            .then((Response) => {
+                console.log(Response);
+                for(let i=0 ; i<Response.data.length; i++)
+                {
+                    shownewUserOnScreen(Response.data[i]);
+                }
+            })
 });
 function shownewUserOnScreen(userdetail)
 {
