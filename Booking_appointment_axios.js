@@ -60,14 +60,14 @@ function shownewUserOnScreen(userdetail)
         email : ''
     }*/
     const parentNode = document.getElementById('Users');
-    const childHTML = `<li id=${userdetail._id}> ${userdetail.name} - ${userdetail.email} <button onclick=EditUser('${userdetail._id}','${userdetail.name}')>Edit</button><button onclick=deleteUser('${userdetail._id}')>Delete</button></li>`;
+    const childHTML = `<li id=${userdetail._id}> ${userdetail.name} - ${userdetail.email} <button onclick=EditUser('${userdetail.email}','${userdetail.name}','${userdetail._id}')>Edit</button><button onclick=deleteUser('${userdetail._id}')>Delete</button></li>`;
     parentNode.innerHTML += childHTML;
 }
-function EditUser(email,name)
+function EditUser(email,name,UserID)
 {
     document.getElementById('name').value = name;
     document.getElementById('email').value = email;
-    deleteUser(email);
+    deleteUser(UserID);
 }
 function deleteUser(UserID)
 {
