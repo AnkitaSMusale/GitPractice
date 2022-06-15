@@ -27,7 +27,7 @@ function onsubmit(e){
                 console.log(Response) 
             })
             .catch((err) => {
-                document.body.innerHTML += "<h4> Something Went Wrong </h4>"
+                document.body.innerHTML += "<h4> Something Went Wrong </h4>";
                 console.log(err);
             })
 
