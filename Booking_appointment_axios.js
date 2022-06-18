@@ -67,7 +67,18 @@ function EditUser(email,name,UserID)
 {
     document.getElementById('name').value = name;
     document.getElementById('email').value = email;
-    deleteUser(UserID);
+    axios.put(`https://crudcrud.com/api/1b479ff2f4844de9be959f6bc1218ec5/appointmentData`)
+        .then((Response) => {
+            console.log(Response);
+            
+            deleteUser(UserID);
+            //shownewUserOnScreen(Response.data)
+            
+        })
+        .catch(err => console.log(err));
+   // document.getElementById('name').value = name;
+   // document.getElementById('email').value = email;
+   // deleteUser(UserID);
 }
 function deleteUser(UserID)
 {
@@ -81,7 +92,6 @@ function deleteUser(UserID)
                 document.body.innerHTML += "<h4> Cannot be Deleted </h4>"
                 console.log(err);
             })
-    
 }
 
 function removeUserFromScreen(UserID)
