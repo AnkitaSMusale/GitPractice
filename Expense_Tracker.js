@@ -12,7 +12,6 @@ function onsubmit(e){
     if(amt.value==='' || descr.value==='' || categ.value==='none'){
         msg.classList.add('error');
         msg.innerHTML='please enter all fields';
-
         setTimeout(()=>msg.remove(),3000);
     }
     else{
