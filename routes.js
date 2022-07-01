@@ -9,7 +9,7 @@ const requestHandler = (req,res)=>{
         res.write('<head><title>Enter message</title></html>');
         res.write('<body><form action = "/message" method = "POST"><input type ="text" name="message"><button type="submit">Send</button></body>');
         res.write('</html>');
-        return res.end();
+        return res.end()
     }
     if(url === '/message' && method==='POST'){
         const body = [];
@@ -21,17 +21,21 @@ const requestHandler = (req,res)=>{
         req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
             //console.log(parsedBody);
-            const message =parsedBody.split('=')[1];
-            fs.writeFileSync('message.txt',message);
-            fs.readFile('message.txt',function(err,message){
-            console.log(message.toString());
+            const message = parsedBody.split('=')[0];
+            fs.writeFileSync('message.txt',message,err => {
+                res.statusCode=302;
+                res.setHeader('Location','/');
+                return res.end();
             });
-        });
-        fs.writeFileSync('message.txt','Dummy');
-        res.statusCode=302;
-        res.setHeader('Location','/');
-        return res.end();
-    }
+            //fs.readFile('message.txt',function(err,message){
+            //console.log(message.toString());
+            });
+        };
+        //fs.writeFileSync('message.txt','Dummy');
+       // res.statusCode=302;
+       // res.setHeader('Location','/');
+       // return res.end();
+    
     res.setHeader('Content-Type', 'text/html')
     res.write('<html>');
     res.write('<head><title>Node js Server</title></html>');
