@@ -11,7 +11,7 @@ router.get('/addproduct',(req,res,next)=>{
     res.sendFile(path.join(rootDir,'views','addproduct.html'))
 })
 
-router.post('/addproduct',(req,res,next)=>{
+router.post('/admin/addproduct',(req,res,next)=>{
     console.log(req.body);
     res.redirect('/shop');
 })
