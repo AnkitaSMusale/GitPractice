@@ -1,11 +1,152 @@
-/*var a =function(){
+console.log('a');
+console.log('b');
+let promise1 = new Promise((resolve,reject) => {
+    setTimeout(() => resolve(console.log('c'), 1000))
+   })
+let  promise2 = new Promise((resolve,reject) => {
+        setTimeout(() => resolve(console.log('d'), 0))
+    })
+promise1.then(promise2.then(() => {console.log('e')}));
+
+    
+
+     
+    
+    
+    
+    
+    
+    
+    
+    
+
+/*class Queue {
+    constructor(capacity)
+    {
+        this.capacity = capacity;
+        this.size ;
+        this.front = this.size = 0;
+        this.rear = capacity - 1;
+        this.array = [this.capacity];
+    }
+    isFull(queue)
+    {
+        return (queue.size == queue.capacity);
+    }
+    isEmpty(queue)
+    {
+        return (queue.size == 0);
+    }
+    push(item)
+    {
+        this.rear = (this.rear + 1)
+                    % this.capacity;
+        this.array[this.rear] = item;
+        this.size = this.size + 1;
+        console.log(item + " pushed to queue");
+    }
+    pop()
+    {
+        var item = this.array[this.front];
+        this.front = (this.front + 1)
+                     % this.capacity;
+        this.size = this.size - 1;
+        return item;
+    }
+    front1()
+    {
+        return this.array[this.front];
+    }
+    rear1()
+    {
+        return this.array[this.rear];
+    }
+}
+ 
+ const queue = new Queue(1000);
+ 
+        queue.push(10);
+        queue.push(20);
+        queue.push(30);
+        queue.push(40);
+ 
+        console.log(queue.pop() +  `popped`);
+ 
+        console.log(queue.front1() +  `front`);
+ 
+        console.log(queue.rear1()+  `rear`);
+
+        console.log(queue.pop() +  `popped`);
+      
+        console.log(queue.front1() +  `front`);
+ 
+        console.log(queue.rear1()+  `rear`);
+   */ 
+    
+
+
+/*class MyStack {
+    constructor(s) {
+        this.maxSize = s;
+        this.stackArray = [];
+        this.top = -1;
+  
+     }
+   
+     push(j) {
+        return this.stackArray[++this.top] = j;
+        
+    }
+     pop() {
+        if(this.top == -1) return undefined;
+         
+        return this.stackArray[this.top--];
+    }
+    peek() {
+       return this.stackArray[this.top-1];
+    }
+      isEmpty() {
+       return this.top == -1;
+    }
+      isFull() {
+       return this.top == this.maxSize - 1;
+    }
+} 
+ 
+       const theStack = new MyStack(10); 
+       theStack.push(10);
+       theStack.push(20);
+       theStack.push(30);
+       theStack.push(40);
+       theStack.push(50);
+       
+       while (!theStack.isEmpty()) {
+          let value = theStack.pop();
+          console.log(value);
+       }*/
+       
+
+
+
+
+
+/*document.getElementById("ClickMe").addEventListener("click",function xyz(){
+    console.log("button clicked");
+    
+});
+document.addEventListener("DOMContentLoaded", function abc() {
+    console.log("dom has loaded");
+    
+});
+
+var a =function(){
     this.val = 2;
     setTimeout(() => {
         this.val += 2;
         console.log(this.val);
     } , 1)
 };
-var y = new a();*/
+var y = new a();
 //Take the student class which you made up and write a function called egligible
 // for placements which basically takes the minimum board marks required by a 
 //candidate to sit for the company coming for placement and it returns a fat arrow function.
@@ -45,7 +186,7 @@ console.log(rock.eligibility());
 
 
 
-//this.table = 'table'; 
+//this.table = 'table'; */
 
 /*
 class Student {

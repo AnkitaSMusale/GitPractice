@@ -1,0 +1,28 @@
+{
+  "name": "gitpractice",
+  "version": "1.0.0",
+  "description": "complete Node.js guide",
+  "main": "Async_await.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon node-demo.js",
+    "start-server": "Start with Project"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnkitaSMusale/GitPractice.git"
+  },
+  "author": "Ankita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnkitaSMusale/GitPractice/issues"
+  },
+  "homepage": "https://github.com/AnkitaSMusale/GitPractice#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1"
+  }
+}

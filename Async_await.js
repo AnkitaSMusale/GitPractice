@@ -1,5 +1,50 @@
+/*  //4) dummy example of async/await
+const helper= function () {
+
+    const promise = new Promise(function (resolve, reject) {
+
+      const x = "abc";
+
+      const y = "ac";
+
+      if (x === y) {
+
+        resolve("Strings are same");
+
+      } else {
+
+        reject("Strings are not same");
+
+      }
+
+    });
+
+    return promise;
+
+  };
+
+  async function promise1() {
+
+    try {
+
+      let message = await helper();
+
+      console.log(message);
+      console.log('Hello');
+
+    } catch (error) {
+
+      console.log("Error: " + error);
+
+    }
+
+  }
+
+  promise1();
+  /*
+
 //3) create and delete post using promises
-const posts = [
+/*const posts = [
     {title : 'Post one' , body : 'This is post one',lastActivity : new Date().getTime()},
     {title : 'Post Two' , body : 'This is post two',lastActivity : new Date().getTime()}, 
     {title : 'Post three' , body : 'This is post three',lastActivity : new Date().getTime()} 
@@ -45,7 +90,7 @@ const promises = async() => {
 }
 //user().then((m) => console.log(`posts ${m}`));
 getpost(); 
-promises().then(getpost).then(() => console.log(`posts updated`)); 
+promises().then(getpost).then(() => console.log(`posts updated`)); */
  
 
 

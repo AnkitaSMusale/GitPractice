@@ -1,3 +1,4 @@
+
 /*const ul=document.querySelector('.items');
 ul.firstElementChild.textContent='Hello';
 ul.children[1].innerText='Brand';
@@ -47,7 +48,7 @@ function onsubmit(e){
         name.value='';
         email.value='';
 
-}
+    }
 }       
 document.addEventListener('DOMContentLoaded',() => {
         console.log("dom has loaded",localStorage);
@@ -61,6 +62,7 @@ document.addEventListener('DOMContentLoaded',() => {
 });
 function shownewUserOnScreen(userdetail)
 {
+    
     //console.log(localStorage.getItem(userdetail.email));
     if(localStorage.getItem(userdetail.email) !== null)
     {

@@ -21,7 +21,7 @@ function onsubmit(e){
         }
         removeUserFromScreen(obj.email);
 
-        axios.post("https://crudcrud.com/api/1b479ff2f4844de9be959f6bc1218ec5/appointmentData",obj)
+        axios.post("https://crudcrud.com/api/e1da42a596e841049bb54d5bc3afb5ae/appointmentData",obj)
             .then((Response) => {
                 shownewUserOnScreen(Response.data)
                 console.log(Response) 
@@ -42,7 +42,7 @@ function onsubmit(e){
 }       
 document.addEventListener('DOMContentLoaded',() => {
         console.log("dom has loaded");
-        axios.get("https://crudcrud.com/api/1b479ff2f4844de9be959f6bc1218ec5/appointmentData")
+        axios.get("https://crudcrud.com/api/e1da42a596e841049bb54d5bc3afb5ae/appointmentData")
             .then((Response) => {
                 console.log(Response);
                 for(let i=0 ; i<Response.data.length; i++)
@@ -65,9 +65,9 @@ function shownewUserOnScreen(userdetail)
 }
 function EditUser(email,name,UserID)
 {
-    document.getElementById('name').value = name;
+    /*document.getElementById('name').value = name;
     document.getElementById('email').value = email;
-    axios.put(`https://crudcrud.com/api/1b479ff2f4844de9be959f6bc1218ec5/appointmentData`)
+    axios.put(`https://crudcrud.com/api/e1da42a596e841049bb54d5bc3afb5ae/appointmentData`)
         .then((Response) => {
             console.log(Response);
             
@@ -75,15 +75,14 @@ function EditUser(email,name,UserID)
             //shownewUserOnScreen(Response.data)
             
         })
-        .catch(err => console.log(err));
-   // document.getElementById('name').value = name;
-   // document.getElementById('email').value = email;
-   // deleteUser(UserID);
+        .catch(err => console.log(err));*/
+    document.getElementById('name').value = name;
+    document.getElementById('email').value = email;
+    deleteUser(UserID);
 }
 function deleteUser(UserID)
 {
-   // console.log(email);
-    axios.delete(`https://crudcrud.com/api/1b479ff2f4844de9be959f6bc1218ec5/appointmentData/${UserID}`)
+    axios.delete(`https://crudcrud.com/api/e1da42a596e841049bb54d5bc3afb5ae/appointmentData/${UserID}`)
             .then((Response) => {
                 console.log(Response);
                 removeUserFromScreen(UserID);
