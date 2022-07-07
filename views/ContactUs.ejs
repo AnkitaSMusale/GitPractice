@@ -1,0 +1,16 @@
+<%- include('includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+<body> 
+    <%- include('includes/navigation.ejs') %>
+    <main>
+        <form action="/ContactUs" method="POST">
+            <label>Enter name : </label>
+            <input type="text" name="name"><br>
+            <label>Enter email-id : </label>
+            <input type="text" name="email"><br>
+            <button type="submit">Get a Call</button>
+        </form>
+    </main>
+    <%- include('includes/end.ejs') %>
