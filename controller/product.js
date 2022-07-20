@@ -1,5 +1,4 @@
-const products = [];
-
+const Product = require('../models/product');
 exports.getaddproduct = (req, res, next) => {
     res.render('add-product', {
       pageTitle: 'Add Product',
@@ -11,18 +10,23 @@ exports.getaddproduct = (req, res, next) => {
   }
 
   exports.postproduct = (req, res, next) => {
-    products.push({ title: req.body.title });
+    //products.push({ title: req.body.title });
+    const product = new Product( req.body.title )
+    product.save();
     res.redirect('/');
   }
 
   exports.getproduct= (req, res, next) => {
     //const products = adminData.products;
-    res.render('shop', {
-      prods: products,
-      pageTitle: 'Shop',
-      path: '/',
-      hasProducts: products.length > 0,
-      activeShop: true,
-      productCSS: true
+    Product.fetchAll((products)=>{
+      res.render('shop', {
+        prods: products,
+        pageTitle: 'Shop',
+        path: '/',
+        hasProducts: products.length > 0,
+        activeShop: true,
+        productCSS: true
+      });
     });
+    
   }
